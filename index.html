@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document Object Model:30 Days Of JavaScript</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+    }
+  </style>
+
+  <body>
+    <h1>Press any keyboard key</h1>
+    <p></p>
+
+    <script>
+      let h1 = document.querySelector("h1");
+      let p = document.querySelector("p");
+
+      h1.style.borderWidth = "1px";
+      h1.style.padding = "30px 120px";
+      h1.style.boxShadow = "6px 7px 18px -1px rgba(0,0,0,0.75)";
+      h1.style.fontSize='10vh'
+
+      p.style.borderWidth= '1px';
+      p.style.padding = '50px 20px';
+      p.style.boxShadow = 'rgba(0, 0, 0, 0.75) 6px 7px 18px -1px';
+      p.style.borderRadius = '10px'
+      p.style.fontSize = '10vh';
+      p.style.color = 'green';
+      p.style.fontWeight = 'bold';
+      p.style.display = 'none';
+
+
+      document.body.addEventListener("keyup", (e) => {
+        h1.innerHTML = "You pressed ";
+
+        for (let char of e.key) {
+          let span = document.createElement("span");
+          span.textContent = char;
+
+          span.style.color = "green";
+
+          h1.appendChild(span);
+        }
+
+        p.textContent = e.keyCode;
+        p.style.display = "inline-block";
+      });
+    </script>
+  </body>
+</html>
